@@ -1,5 +1,5 @@
 export function button(text, onClick = () => {}){
     return(
-        <button onClick={onClick}>{text}</button>
+        <button onClick={onClick} className="bg-rm-blue-100 hover:bg-rm-blue-200">{text}</button>
     );
 }
