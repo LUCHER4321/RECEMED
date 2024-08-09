@@ -1,5 +1,5 @@
 export async function requestData(RUT, pass){
-    const apiUrl = 'http://rec-staging.recemed.cl/doc/swagger.json';
+    const apiUrl = 'http://rec-staging.recemed.cl/api/users/log_in';
     const requestData = {
         user: {
             password: pass,
