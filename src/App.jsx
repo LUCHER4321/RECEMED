@@ -17,8 +17,9 @@ function App() {
           alert("RUT inválido");
       }
   };
+  const login = () => {};
   const RUTPage = page("Ingresa tu RUT", RUT, setRUT, "Siguiente", nextButton); // RUT = 11111111-1
-  const passPage = page("Ingresa tu contraseña", pass, setPass, "Ingresar"); // PASS = 11223344
+  const passPage = page("Ingresa tu contraseña", pass, setPass, "Ingresar", login); // PASS = 11223344
   return (
       <div className="flex flex-col items-center">
           {currentPage === 'RUTPage' && RUTPage}
