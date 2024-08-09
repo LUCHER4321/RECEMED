@@ -36,7 +36,7 @@ function App() {
   const RUTPage = page("Ingresa tu RUT", RUT, setRUT, "Siguiente", nextButton); // RUT = 11111111-1
   const passPage = page("Ingresa tu contraseña", pass, setPass, "Ingresar", login); // PASS = 11223344
   return (
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center relative">
           {currentPage === 'RUTPage' && RUTPage}
           {currentPage === 'passPage' && passPage}
           {firstProfile && prescription(firstProfile)}
