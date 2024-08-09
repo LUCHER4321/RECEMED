@@ -39,7 +39,6 @@ function App() {
       <div className="flex flex-col items-center">
           {currentPage === 'RUTPage' && RUTPage}
           {currentPage === 'passPage' && passPage}
-          <pre className="bg-gray-100 p-4 rounded">{jsonResponse}</pre>
           {firstProfile && prescription(firstProfile)}
       </div>
   );
