@@ -5,12 +5,14 @@ import './App.css'
 import { testRUT } from './assets/TestRUT';
 import { page } from './assets/Page';
 import { requestData } from './assets/RequestData';
+import { prescription } from './assets/Prescription';
 
 function App() {
   const [RUT, setRUT] = useState('');
   const [pass, setPass] = useState('');
   const [currentPage, setCurrentPage] = useState('RUTPage');
   const [jsonResponse, setJsonResponse] = useState('');
+  const [firstProfile, setFirstProfile] = useState(null);
   const nextButton = () => {
       const valid = testRUT(RUT);
       if (valid) {
@@ -25,6 +27,9 @@ function App() {
       setJsonResponse(`Error: ${response.error}`);
     }
     else{
+      setCurrentPage('');
+      const profile = response.data.profiles[0];
+      setFirstProfile(profile);
       setJsonResponse(JSON.stringify(response, null, 2));
     }
   };
@@ -35,6 +40,7 @@ function App() {
           {currentPage === 'RUTPage' && RUTPage}
           {currentPage === 'passPage' && passPage}
           <pre className="bg-gray-100 p-4 rounded">{jsonResponse}</pre>
+          {firstProfile && prescription(firstProfile)}
       </div>
   );
 }
