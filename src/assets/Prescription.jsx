@@ -44,7 +44,7 @@ function onePrescription(json){
 
 function allPrescriptions(list){
     if (!list || list.length === 0) {
-        return <p>{list}</p>;
+        return <p>Lista vacía</p>;
     }
     return (
         <div className="grid grid-cols-1 md:grid-cols-2">
