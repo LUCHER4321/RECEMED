@@ -64,7 +64,7 @@ async function handlePrescriptions(token) {
     try {
         const response = await fetchPrescriptions(token);
         if (response && response.data) {
-            return allPrescriptions(response.data, token);
+            return allPrescriptions(response.data);
         } else {
             return <p>No hay recetas disponibles</p>;
         }
