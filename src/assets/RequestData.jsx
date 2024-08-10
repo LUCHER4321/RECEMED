@@ -26,5 +26,5 @@ export async function requestData(RUT, pass){
 
 function cleanRUT(RUT){
     const newRUT = RUT.replace(/[.\-]/g, "");
-    return `{newRUTcleanRUT.slice(0, -1)}-{cleanRUT.slice(-1)}`
+    return `${newRUT.slice(0, -1)}-${newRUT.slice(-1)}`
 }

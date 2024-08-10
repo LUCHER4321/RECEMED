@@ -1,7 +1,8 @@
-export async function prescription(profile, token = ""){
+export async function prescription(first_name, last_name, token = ""){
+    console.log(first_name + " " + last_name);
     return(
-        <div>
-            <header className="absolute top-0 right-0">{profile.first_name} {profile.last_name}</header>
+        <div className="flex flex-col items-center">
+            <header className="absolute top-0 right-0">{first_name} {last_name}</header>
             <div className="flex flex-col absolute top-0 left-0">
                 <p className="bg-rm-cyan-100">Receta Retenida</p>
                 <p className="bg-rm-cyan-200">Receta Simple</p>
