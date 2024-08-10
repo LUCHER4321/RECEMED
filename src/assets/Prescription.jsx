@@ -2,6 +2,10 @@ export async function prescription(profile, token = ""){
     return(
         <div>
             <header className="absolute top-0 right-0">{profile.first_name} {profile.last_name}</header>
+            <div className="flex flex-col absolute top-0 left-0">
+                <p className="bg-rm-cyan-100">Receta Retenida</p>
+                <p className="bg-rm-cyan-200">Receta Simple</p>
+            </div>
             {await handlePrescriptions(token)}
         </div>
     );
@@ -28,12 +32,10 @@ async function fetchPrescriptions(token){
 
 function onePrescription(json){
     const doctor = json.doctor;
+    const bgColor = json.type === "Receta Retenida" ? "bg-rm-cyan-100" : json.type === "Receta Simple" ? "bg-rm-cyan-200" : "bg-white";
     return (
-        <div className="flex flex-col">
-            <div className="flex flex-row">
-                <p>Folio: {json.folio}</p>
-                <p>Receta de Medicamentos</p>
-            </div>
+        <div className={`flex flex-col ${bgColor}`}>
+            <p>Folio: {json.folio}</p>
             <p>Fecha de Emisión: {json.inserted_at}</p>
             <p>Dr. {doctor.first_name} {doctor.last_name}</p>
             <p>{doctor.speciality}</p>
