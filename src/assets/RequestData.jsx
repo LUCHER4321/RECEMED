@@ -3,7 +3,7 @@ export async function requestData(RUT, pass){
     const requestData = {
         user: {
             password: pass,
-            rut: RUT
+            rut: cleanRUT(RUT)
         }
     };
     try{
@@ -22,4 +22,9 @@ export async function requestData(RUT, pass){
         console.error('Error:', error);
         return { error: error.message };
     }
+}
+
+function cleanRUT(RUT){
+    const newRUT = RUT.replace(/[.\-]/g, "");
+    return `{newRUTcleanRUT.slice(0, -1)}-{cleanRUT.slice(-1)}`
 }
