@@ -1,10 +1,10 @@
 import testData from './test.json';
 
-export function prescription(profile, token = ""){
+export async function prescription(profile, token = ""){
     return(
         <div>
             <header className="absolute top-0 right-0">{profile.first_name} {profile.last_name}</header>
-            {handlePrescriptions(token)}
+            {await handlePrescriptions(token)}
         </div>
     );
 }
