@@ -302,3 +302,68 @@ async function handlePrescriptions(token) {
   }
 }
 ```
+
+La función `fetchPrescriptions(token)` se encarga de obtener el JSON de las recetas con a partir del token obtenido del RUT y la contraseña del paciente.
+
+```javascript
+async function fetchPrescriptions(token) {
+  const response = await fetch(
+    "http://rec-staging.recemed.cl/api/patients/prescriptions",
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  if (!response.ok) {
+    console.error("Error fetching data:", response.status, response.statusText);
+    throw new Error(`Network response was not ok. Status: ${response.status}`);
+  }
+  const data = await response.json();
+  return data;
+}
+```
+
+La función `allPrescriptions(list)` se encarga de mostrar la lista de recetas en una tabla de una columna para móbiles y 2 para PC, la estructura de cada elemnto de `list` viene dada por la función `onePrescription(json)`.
+
+```javascript
+function allPrescriptions(list) {
+  if (!list || list.length === 0) {
+    return <p>Lista vacía</p>;
+  }
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2">
+      {list.map((item, index) => (
+        <div key={index}>{onePrescription(item)}</div>
+      ))}
+    </div>
+  );
+}
+```
+
+La función `onePrescription(json)` se encarga de la estructura de las recetas, primero el folio, luego la fecha de emisión, después el nombre y especialidad del doctor respectivamente y, finalmente, el código. Las recetas retenidas tienen un fondo cian claro `#00FFFF`, mientras que las recetas simples tienen un fondo cian más cercano al azul `#007FFF`
+
+```javascript
+function onePrescription(json) {
+  const doctor = json.doctor;
+  const bgColor =
+    json.type === "Receta Retenida"
+      ? "bg-rm-cyan-100"
+      : json.type === "Receta Simple"
+      ? "bg-rm-cyan-200"
+      : "bg-white";
+  return (
+    <div className={`flex flex-col ${bgColor}`}>
+      <p>Folio: {json.folio}</p>
+      <p>Fecha de Emisión: {json.inserted_at}</p>
+      <p>
+        Dr. {doctor.first_name} {doctor.last_name}
+      </p>
+      <p>{doctor.speciality}</p>
+      <p>código: {json.code}</p>
+    </div>
+  );
+}
+```
