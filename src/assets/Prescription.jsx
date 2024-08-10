@@ -13,7 +13,6 @@ export async function prescription(first_name, last_name, token = ""){
 }
 
 async function fetchPrescriptions(token){
-    console.log('Token:', token);
     const response = await fetch('http://rec-staging.recemed.cl/api/patients/prescriptions', {
         method: 'GET',
         headers: {
@@ -21,13 +20,11 @@ async function fetchPrescriptions(token){
             'Content-Type': 'application/json',
         },
     });
-    console.log('Response status:', response.status);
     if (!response.ok) {
         console.error('Error fetching data:', response.status, response.statusText);
         throw new Error(`Network response was not ok. Status: ${response.status}`);
     }
     const data = await response.json();
-    console.log('Data fetched:', data);
     return data;
 }
 
