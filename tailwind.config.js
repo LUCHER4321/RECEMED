@@ -8,7 +8,9 @@ export default {
     extend: {
       colors: {
         "rm-blue-100": "#367CF4",
-        "rm-blue-200": "#367cc8"
+        "rm-blue-200": "#367cc8",
+        "rm-cyan-100": "#00FFFF",
+        "rm-cyan-200": "#007FFF"
       }
     },
   },
