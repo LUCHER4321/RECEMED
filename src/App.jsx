@@ -12,7 +12,6 @@ function App() {
   const [pass, setPass] = useState('');
   const [currentPage, setCurrentPage] = useState('RUTPage');
   const [jsonResponse, setJsonResponse] = useState('');
-  const [token, setToken] = useState('');
   const [firstProfile, setFirstProfile] = useState(null);
   const nextButton = () => {
       const valid = testRUT(RUT);
@@ -30,8 +29,9 @@ function App() {
     else{
       setCurrentPage('');
       const profile = response.data.profiles[0];
-      setFirstProfile(profile);
-      setToken(response.data.token);
+      const token = response.data.token;
+      setJsonResponse(token);
+      setFirstProfile(prescription(profile, token));
     }
   };
   const RUTPage = page("Ingresa tu RUT", RUT, setRUT, "Siguiente", nextButton); // RUT = 11111111-1
@@ -40,7 +40,7 @@ function App() {
       <div className="flex flex-col items-center relative">
           {currentPage === 'RUTPage' && RUTPage}
           {currentPage === 'passPage' && passPage}
-          {firstProfile && prescription(firstProfile, token)}
+          <p>{jsonResponse}</p>
       </div>
   );
 }
