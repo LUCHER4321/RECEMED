@@ -176,7 +176,7 @@ La página para ingresar la contraseña se encuentra en el archivo [prescription
 </html>
 ```
 
-La estructura es creada en el archivo [pres_main.jsx](./src/pres_main.jsx) y la función `prescription(first_name, last_name, token = "")`.
+La estructura es creada en el archivo [pres_main.jsx](./src/pres_main.jsx) y la función `prescription(first_name, last_name, token = "")` a partir del nombre, apellido y token que se obtuvo previamente.
 
 ```javascript
 import { StrictMode } from "react";
