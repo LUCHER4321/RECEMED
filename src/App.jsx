@@ -11,7 +11,7 @@ function App() {
   const [RUT, setRUT] = useState('');
   const [pass, setPass] = useState('');
   const [currentPage, setCurrentPage] = useState('RUTPage');
-  const [firstProfile, setFirstProfile] = useState(null);
+  const [prescriptions, setPrescriptions] = useState(null);
   const nextButton = () => {
       const valid = testRUT(RUT);
       if (valid) {
@@ -29,7 +29,7 @@ function App() {
       setCurrentPage('');
       const profile = response.data.profiles[0];
       const token = response.data.token;
-      setFirstProfile(await prescription(profile, token));
+      setPrescriptions(await prescription(profile, token));
     }
   };
   const RUTPage = page("Ingresa tu RUT", RUT, setRUT, "Siguiente", nextButton); // RUT = 11111111-1
@@ -38,7 +38,7 @@ function App() {
     <div className="flex flex-col items-center relative">
       {currentPage === 'RUTPage' && RUTPage}
       {currentPage === 'passPage' && passPage}
-      {firstProfile}
+      {prescriptions}
     </div>
   );
 }
