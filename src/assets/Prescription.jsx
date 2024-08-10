@@ -47,7 +47,7 @@ function allPrescriptions(list){
         return <p>{list}</p>;
     }
     return (
-        <div className="flex flex-col space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2">
             {list.map((item, index) => (
                 <div key={index}>
                     {onePrescription(item)}
