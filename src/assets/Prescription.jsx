@@ -1,5 +1,3 @@
-import testData from './test.json';
-
 export async function prescription(profile, token = ""){
     return(
         <div>
