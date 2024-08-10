@@ -10,9 +10,7 @@ function PassLogin(){
         }
         else{
             //Ir a recetas
-            console.log(RUT);
             const profile = response.data.profiles[0];
-            console.log(profile);
             const firstName = profile.first_name;
             const lastName = profile.last_name;
             localStorage.setItem("first_name", firstName);
