@@ -367,3 +367,13 @@ function onePrescription(json) {
   );
 }
 ```
+
+## Ejecuciones en terminal
+
+### Unit test
+
+El unit test elegido es la función `testRUT(RUT)` porque considero necesario asegurar que los RUTs de los pacientes sean válidos. Para ejecutarlo, hay que ejecutar el comando `npm test` en un Terminal.
+
+### Ejecutar el proyecto
+
+Para ejecutar el proyecto hay que ejecutar el comando `npm run dev` en un Terminal y entonces se abrirá en un puerto local.
