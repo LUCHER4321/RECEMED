@@ -401,8 +401,10 @@ function onePrescription(json) {
 
 El unit test elegido es la función `testRUT(RUT)` porque considero necesario asegurar que los RUTs de los pacientes sean válidos. Para ejecutarlo, hay que ejecutar el comando `npm test` en un Terminal.
 
-Para ejecutar el unit test, se necesitan los paquetes jest (se instala con el comando `npm install --save-dev jest`) y babel (se instala con el comando `npm install --save-dev babel-jest @babel/preset-env @babel/preset-react`)
+Para ejecutar el unit test, se necesitan los paquetes jest (se instala con el comando `npm install --save-dev jest`) y babel (se instala con el comando `npm install --save-dev babel-jest @babel/preset-env @babel/preset-react`).
 
 ### Ejecutar el proyecto
 
 Para ejecutar el proyecto hay que ejecutar el comando `npm run dev` en un Terminal y entonces se abrirá en un puerto local, puede cerrarse pulsando `CTRL+C` en el Terminal.
+
+Para ejecutar el proyecto, se necesita el paquete Tailwind CSS (se instala con los comandos `npm install -D tailwindcss postcss autoprefixer` y `npx tailwindcss init -p`).
