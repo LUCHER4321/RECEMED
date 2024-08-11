@@ -376,4 +376,4 @@ El unit test elegido es la función `testRUT(RUT)` porque considero necesario as
 
 ### Ejecutar el proyecto
 
-Para ejecutar el proyecto hay que ejecutar el comando `npm run dev` en un Terminal y entonces se abrirá en un puerto local.
+Para ejecutar el proyecto hay que ejecutar el comando `npm run dev` en un Terminal y entonces se abrirá en un puerto local, puede cerrarse pulsando `CTRL+C` en el Terminal.
