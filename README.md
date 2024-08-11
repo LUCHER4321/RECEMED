@@ -195,6 +195,33 @@ createRoot(document.getElementById("root")).render(
 );
 ```
 
+### Configuración de Tailwind CSS
+
+Los colores creados para el Tailwind CSS son:
+
+- `"rm-blue-100": "#367CF4"`
+- `"rm-blue-200": "#367cc8"`
+- `"rm-cyan-100": "#00FFFF"`
+- `"rm-cyan-200": "#007FFF"`
+
+```javascript
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        "rm-blue-100": "#367CF4",
+        "rm-blue-200": "#367cc8",
+        "rm-cyan-100": "#00FFFF",
+        "rm-cyan-200": "#007FFF",
+      },
+    },
+  },
+  plugins: [],
+};
+```
+
 ## Cómo se implementó el CSR
 
 ### Testeo del RUT
@@ -343,7 +370,7 @@ function allPrescriptions(list) {
 }
 ```
 
-La función `onePrescription(json)` se encarga de la estructura de las recetas, primero el folio, luego la fecha de emisión, después el nombre y especialidad del doctor respectivamente y, finalmente, el código. Las recetas retenidas tienen un fondo cian claro `#00FFFF`, mientras que las recetas simples tienen un fondo cian más cercano al azul `#007FFF`
+La función `onePrescription(json)` se encarga de la estructura de las recetas, primero el folio, luego la fecha de emisión, después el nombre y especialidad del doctor respectivamente y, finalmente, el código. Las recetas retenidas tienen un fondo color `"rm-cyan-100"`, mientras que las recetas simples tienen un fondo color `"rm-cyan-200"`.
 
 ```javascript
 function onePrescription(json) {
